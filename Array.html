@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<title>
+		Assignment
+	</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Welcome to JTC Assignment(JALAN TECHNOLOGIES)</h1><hr>
+    <h3>Question 1</h3>
+    <p>Write a program that takes as input a sorted array of numbers. The objective is to return the array arranged in an
+        alternate order such that max value is followed by min value in a descending fashion, so that the 1st element is the
+        max value, 2nd element is the min value, 3rd element is the second max value, 4th element is the second min value &
+        so on.</p><br>
+    
+        <p><b>Example:</b> For an input array [2, 4, 6, 8, 10],<br>
+            the expected result would be [10, 2, 8, 4, 6]</p>
+
+        <script>
+            function assignmentofArray(arr, n)
+            {
+                var temp = new Array(n);
+                var sm = 0, lg = n - 1;
+                var flag = true;
+                
+                for (var i = 0; i < n; i++) {
+                    if (flag){
+                        temp[i] = arr[lg--];
+                    }
+                    else{
+                        temp[i] = arr[sm++];
+                    }
+                
+                    flag = !flag;
+                }
+                
+                for (var i = 0; i < n; i++){
+                    arr[i] = temp[i];
+                }   
+            }
+                
+            var n = prompt('Enter size of array')
+            var arr = [n];
+                
+            for(var i=0; i<n; i++) {
+	            arr[i] = prompt('Enter Sorted Arrays of Element ' + (i+1));
+            }
+            assignmentofArray(arr, n);
+                
+            document.write("<br>Output is : <br>");
+            for (var i = 0; i < n; i++){
+                document.write(arr[i] + " "); 
+                console.log(arr[i] + " ");
+            }               
+        </script>          
+</body>
+
+</html>
